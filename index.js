@@ -38,3 +38,11 @@ function buttonAnimation(currentKey) {
     }, 100);
   
   }
+
+document.addEventListener("keypress", function(event) {
+
+    handleclick(event.key);
+  
+    buttonAnimation(event.key);
+  
+  });
