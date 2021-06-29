@@ -46,6 +46,7 @@ footer {
 
 .set {
   margin: 10% auto;
+  display :grid:
 }
 
 .game-over {
