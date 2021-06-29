@@ -79,3 +79,6 @@ footer {
   margin: 10px;
   background-color: white;
 }
+hr{
+  border:5px solid black;
+}

@@ -1,20 +1,17 @@
 let a=document.querySelectorAll(".drum");
 
-for(i=0;i<a.length;i++)
+for(let i=0;i<a.length;i++)
 {
-    a[i].addEventListener("click",handleclick);
+    a[i].addEventListener("click", function() {
+        var p = this.innerHTML;
+        handleclick(p);
+        buttonAnimation(p);
+      });
 }
 
-document.addEventListener("keypress", function(event) {
-
-    makeSound(event.key);
-  
-    buttonAnimation(event.key);
-  
-  });
-
-function handleclick()
+function handleclick(p)
 {
+    console.log(p);
     let audio;
     let nmap =new Map();
     nmap['w']="tom-1.mp3";
@@ -24,11 +21,20 @@ function handleclick()
     nmap['j']="snare.mp3";
     nmap['k']="crash.mp3";
     nmap['l']="kick-bass.mp3";
-    let p=this.innerHTML;
     //console.log(p);
     audio=new Audio("sounds/"+nmap[p]);
     audio.play();
+    
 }
 
+function buttonAnimation(currentKey) {
 
-//= new Audio("sounds/tom-1.mp3")
+    var activeButton = document.querySelector("." + currentKey);
+  
+    activeButton.classList.add("pressed");
+  
+    setTimeout(function() {
+      activeButton.classList.remove("pressed");
+    }, 100);
+  
+  }
